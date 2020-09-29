@@ -1,0 +1,182 @@
+<!-- Login page -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- TODO: enlever '*' dans content après default-src et trouver un
+      moyen une autre solution pour que le projet reste fonctionnel -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src * 'self' 'unsafe-inline' data: gap: https://ssl.gstatic.com/ 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta
+      name="viewport"
+      content="initial-scale=1, width=device-width, viewport-fit=cover"
+    />
+    <link rel="stylesheet" type="text/css" href="css/login.css" />
+
+    <title>Login screen</title>
+  </head>
+
+  <body>
+    <div id="top">
+      <h1>Welcome back</h1>
+      <svg
+        width="100%"
+        height="100%"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 411 335"
+        preserveAspectRatio="none"
+      >
+        <g filter="url(#filter0_d)">
+          <path
+            d="M60.626-70.0369L446.938-8.51367S517.194 522.657 381.615 242.316C246.037-38.0251 25 359-27.2122 177.112-79.4244-4.77617 60.626-70.0369 60.626-70.0369z"
+            fill="url(#paint0_linear)"
+          />
+        </g>
+        <defs>
+          <linearGradient
+            id="paint0_linear"
+            x1="280.1"
+            y1="-35.0844"
+            x2="224.219"
+            y2="312.66"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stop-color="#C897F6" stop-opacity="1" />
+            <stop offset="1" stop-color="#81C3E9" stop-opacity="1" />
+          </linearGradient>
+          <filter
+            id="filter0_d"
+            x="-68.5032"
+            y="-81.7172"
+            width="579.788"
+            height="415.992"
+            filterUnits="userSpaceOnUse"
+            color-interpolation-filters="sRGB"
+          >
+            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feColorMatrix
+              in="SourceAlpha"
+              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+            />
+            <feOffset dy="4" />
+            <feGaussianBlur stdDeviation="2" />
+            <feColorMatrix
+              values="0 0 0 0 0.27451 0 0 0 0 0.305882 0 0 0 0 0.192157 0 0 0 1 0"
+            />
+            <feBlend
+              mode="overlay"
+              in2="BackgroundImageFix"
+              result="effect1_dropShadow"
+            />
+            <feBlend
+              in="SourceGraphic"
+              in2="effect1_dropShadow"
+              result="shape"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </div>
+
+    <div id="middle">
+      <form id="login-form">
+        <input
+          type="text"
+          name="email"
+          id="email"
+          required="required"
+          placeholder="Email"
+        />
+        <input
+          type="password"
+          name="pwd"
+          id="pwd"
+          required="required"
+          placeholder="Password"
+        />
+        <button type="submit" id="login-submit-button">
+          <span id="login-submit-text">Log in</span>
+        </button>
+        <p id="forgot">Forgot my password?</p>
+      </form>
+    </div>
+
+    <div id="bottom">
+      <a id="link_login" href="#">I don't have an account</a>
+      <svg
+        width="100%"
+        height="100%"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 412 316"
+        preserveAspectRatio="none"
+      >
+        <g filter="url(#filter0_d)">
+          <path
+            d="M425.253 333.933l-419.69227.058S-158.579-185.297 32.4115 73.0916C223.402 331.48 402.435-102.221 476.581 73.125c74.146 175.346-51.328 260.808-51.328 260.808z"
+            fill="url(#paint0_linear)"
+          />
+        </g>
+        <defs>
+          <linearGradient
+            id="paint0_linear"
+            x1="186.815"
+            y1="333.966"
+            x2="187.237"
+            y2="-22.2176"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stop-color="#C897F7" stop-opacity=".41" />
+            <stop offset="1" stop-color="#2D9CDB" stop-opacity=".67" />
+          </linearGradient>
+          <filter
+            id="filter0_d"
+            x="-64.0462"
+            y=".927582"
+            width="568.086"
+            height="341.072"
+            filterUnits="userSpaceOnUse"
+            color-interpolation-filters="sRGB"
+          >
+            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feColorMatrix
+              in="SourceAlpha"
+              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+            />
+            <feOffset dy="4" />
+            <feGaussianBlur stdDeviation="2" />
+            <feColorMatrix
+              values="0 0 0 0 0.27451 0 0 0 0 0.305882 0 0 0 0 0.192157 0 0 0 1 0"
+            />
+            <feBlend
+              mode="overlay"
+              in2="BackgroundImageFix"
+              result="effect1_dropShadow"
+            />
+            <feBlend
+              in="SourceGraphic"
+              in2="effect1_dropShadow"
+              result="shape"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </div>
+
+    <div class="loader-wrapper" style="display: none;">
+      <span class="loader"><span class="loader-inner"></span></span>
+      <span id="loader-text">Waiting for geolocation</span>
+    </div>
+
+    <script type="text/javascript" src="js/constants/constants.js"></script>
+    <script src="js/jquery-3.2.0.min.js"></script>
+    <script type="text/javascript" src="js/ratchet.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
+  </body>
+</html>

@@ -1,0 +1,146 @@
+<!-- Main page showing all the content shared by friends in the perimeter -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- TODO: enlever '*' dans content après default-src et trouver un
+      moyen une autre solution pour que le projet reste fonctionnel -->
+    <!-- <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src * 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"
+    /> -->
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta
+      name="viewport"
+      content="initial-scale=1, width=device-width, viewport-fit=cover"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/css/ol.css"
+      type="text/css"
+    />
+
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+
+    <title>Link</title>
+  </head>
+
+  <body>
+    <div id="mainPage">
+      <h1>News</h1>
+      <ul id="main-menu">
+        <li>
+          <a href="#" id="profile_link">
+            <img src="img/profile2.png" class="menuButtons" />
+            <div class="caption">
+              Profile
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="#" id="map_link">
+            <img src="img/map.png" class="menuButtons" />
+            <div class="caption">
+              Map
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="#" id="logout_link">
+            <img src="img/logout.png" class="menuButtons" />
+            <div class="caption">
+              Log out
+            </div>
+          </a>
+        </li>
+      </ul>
+
+      <ul id="messagesList"></ul>
+      <button id="addActivityButton">
+        <img src="img/add.png" id="addIcon" />
+      </button>
+    </div>
+
+    <div id="addActivityPage" style="display: none;">
+      <p class="back">
+        <img src="img/keyboard_return-24px.svg" alt="" />
+      </p>
+      <div id="add">
+        <h2>Send</h2>
+        <div id="text-message">
+          <textarea
+            id="messageArea"
+            placeholder="Remember, be nice!"
+            cols="30"
+            rows="25"
+          ></textarea>
+          <img id="myImage" />
+          <div id="cameraArea">
+            <img src="img/camera.png" id="cameraImage" />
+          </div>
+        </div>
+        <img src="img/send.png" id="sendImage" />
+      </div>
+    </div>
+
+    <div id="profilePage" style="display: none;">
+      <p class="back">
+        <img src="img/keyboard_return-24px.svg" alt="" />
+      </p>
+      <h2>Profile page</h2>
+
+      <form name="updateProfile">
+        <div class="container">
+          <input id="name" type="text" placeholder="name" required />
+          <input id="phone" type="text" placeholder="phone" required />
+          <div class="iconProfile">
+            <img src="img/profile.png" class="ProfileImage" />
+          </div>
+        </div>
+        <div class="bottom">
+          <div class="text">
+            <p>Want to change your password?</p>
+          </div>
+
+          <input id="oldPwd" type="text" placeholder="Old password" />
+          <input id="newPwd" type="text" placeholder="New password" />
+          <input id="newPwdConf" type="text" placeholder="Confirmation" />
+          <div class="rangeContainer">
+            <h2 class="textMax">Max distance</h2>
+            <div class="range">
+              <input
+                class="slider"
+                type="range"
+                id="perimeter"
+                name="perimeter"
+                min="1"
+                max="100"
+                value="1"
+              />
+              <label for="perimeter"
+                ><output id="perimeterOutputId"></output> (km)</label
+              >
+            </div>
+          </div>
+          <button id="save" class="save" type="submit">Save</button>
+        </div>
+      </form>
+    </div>
+
+    <div id="mapPage">
+      <div id="map" class="map"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/build/ol.js"></script>
+    <script type="text/javascript" src="js/constants/constants.js"></script>
+    <script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
+    <script type="text/javascript" src="js/ratchet.js"></script>
+    <script type="text/javascript" src="js/socket.io.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/OpenLayers.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/profile.js"></script>
+  </body>
+</html>

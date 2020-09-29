@@ -1,0 +1,100 @@
+var app = {
+  // Application Constructor
+  initialize: function () {
+    document.addEventListener(
+      "deviceready",
+      this.onDeviceReady.bind(this),
+      false
+    );
+  },
+
+  // deviceready Event Handler
+  onDeviceReady: function () {
+
+    alert("Page loaded !");
+
+//    var storage = window.sessionStorage;
+
+    function onSuccess(contacts) {
+                             alert('phoneNumber');
+//              var storage = window.sessionStorage;
+//              var contactPhone = [];
+//              var contactName = [];
+//              var phoneNumber;
+//              for (var i = 0; i < contacts.length; i++) {
+//                  if (contacts[i].phoneNumbers) {
+//                      for (var j = 0; j < contacts[i].phoneNumbers.length; j++) {
+//                         contactName.push(encodeURI(contacts[i].displayName));
+//                         phoneNumber = contacts[i].phoneNumbers[j].value.toString();
+//                         phoneNumber = phoneNumber.replace(/ /g, '');
+//                         phoneNumber = phoneNumber.substring(phoneNumber.length-9,phoneNumber.length);
+//                         contactPhone.push(phoneNumber);
+//                         alert(phoneNumber);
+//                      }
+//                  }
+//              }
+//              storage.setItem("contactPhone", contactPhone.toString());
+//              storage.setItem("contactName", contactName.toString());
+    };
+
+    function onError(contactError) {
+              alert('onError!');
+    };
+
+    alert("Tentative d'enregistrement des contacts");
+
+     var options = new ContactFindOptions();
+     options.filter = '';
+     options.multiple = true;
+     var fields = ["displayName"];
+     navigator.contacts.find(fields, onSuccess, onError, options);
+
+    var getLocationSuccess = function(position){
+       var currentLocationData;
+       alert('Latitude: '          + position.coords.latitude          + '\n' +
+                 'Longitude: '         + position.coords.longitude         + '\n' +
+                 'Altitude: '          + position.coords.altitude          + '\n' +
+                 'Accuracy: '          + position.coords.accuracy          + '\n' +
+                 'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
+                 'Heading: '           + position.coords.heading           + '\n' +
+                 'Speed: '             + position.coords.speed             + '\n' +
+                 'Timestamp: '         + position.timestamp                + '\n');
+//         currentLocationData = {
+//             latitude = position.coords.longitude;
+//             longitude = position.coords.altitude;
+//             accuracy = position.coords.accuracy;
+//             altitudeAccuracy = position.coords.altitudeAccuracy;
+//             heading = position.coords.heading;
+//             speed = position.coords.speed;
+//             timestamp = position.timestamp;
+//         };
+ //        storage.setItem("currentLocationData", currentLocationData);
+       };
+
+     function getLocationError(error) {
+         alert('code: '    + error.code    + '\n' +
+               'message: ' + error.message + '\n');
+     }
+
+//    alert("Tentative geolocation");
+//     navigator.geolocation.getCurrentPosition(getLocationSuccess, getLocationError);
+
+
+
+
+
+
+
+
+  },
+};
+
+$("#login-button").click(function () {
+  window.location = "login.html";
+});
+
+$("#register-button").click(function () {
+  window.location = "registration.html";
+});
+
+app.initialize();
